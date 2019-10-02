@@ -7,7 +7,7 @@ import os
 from splunk.rest import simpleRequest
 
 @Configuration()
-class GenerateTextCommand(GeneratingCommand):
+class DoBumpCommand(GeneratingCommand):
 
     def generate(self):
         fname = os.path.join(os.environ["SPLUNK_HOME"],  "var", "run", "splunk", "push-version.txt")
@@ -26,4 +26,4 @@ class GenerateTextCommand(GeneratingCommand):
         text = 'increased to version %s response: %s' % (newversion,response)
         yield {'_time': time.time(), 'event_no': '0', '_raw': text}
 
-dispatch(GenerateTextCommand, sys.argv, sys.stdin, sys.stdout, __name__)
+dispatch(DoBumpCommand, sys.argv, sys.stdin, sys.stdout, __name__)
