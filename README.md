@@ -1,5 +1,7 @@
 
-## Usage
+## Add-on dobump for Splunk
+
+**Usage**
 
 This is a Add-on for Splunk to provide a custom search command called '| dobump'
 to reload application server cache. This is need if you update Javascript or CSS related content in Dashboards.
@@ -27,3 +29,9 @@ This is an open source project, no support provided, but you can ask questions
 on answers.splunk.com and I will most likely answer it.
 Github repository: https://github.com/schose/ta-dobump
 
+**Links**
+
+- https://answers.splunk.com/answers/31289/can-i-issue-a-bump-from-the-command-line.html
+- https://docs.splunk.com/Documentation/Splunk/7.3.1/AdvancedDev/CustomizationOptions
+-  https://answers.splunk.com/answers/315160/how-to-update-splunk-after-javascript-changes-with.html
+- https://answers.splunk.com/answers/390115/how-do-you-programmatically-bump-a-search-head.html
