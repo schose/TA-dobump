@@ -27,7 +27,7 @@ and output a new string..
 
 This is an open source project, no support provided, but you can ask questions
 on answers.splunk.com and I will most likely answer it.
-Github repository: https://github.com/schose/ta-dobump
+Github repository: https://github.com/schose/TA-dobump
 
 **Links**
 
