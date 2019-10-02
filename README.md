@@ -6,7 +6,7 @@
 This is a Add-on for Splunk to provide a custom search command called '| dobump'
 to reload application server cache. This is need if you update Javascript or CSS related content in Dashboards.
 
-This should give you a possibility to automate cache refreshing in a deployment pipeline or development environment. 
+This should give you a possibility to automate cache refreshing in a development environment or using a CI/CD deployment pipeline. 
 
 **Testing and reproducing**
 
