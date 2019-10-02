@@ -1,0 +1,57 @@
+https://answers.splunk.com/answers/390115/how-do-you-programmatically-bump-a-search-head.html
+
+
+function doBump(){
+     $.ajax({
+         url: '/en-US/_bump',
+         type: 'GET',
+         async: false,
+         success: function(returneddata) { 
+             let baseBump = returneddata; 
+             let postValue = $(baseBump).find("input[type=hidden]").val();
+             //console.log("Initial Bump Page", returneddata);
+             $.ajax({
+                 url: '/en-US/_bump',
+                 type: 'POST',
+                 data: "splunk_form_key=" + postValue,
+                 async: false,
+                 success: function(returneddata) { 
+                                        // console.log("Final Bump", returneddata); 
+                                 },
+                 error: function(xhr, textStatus, error) { 
+                                        // console.error("Error Updating!", xhr, textStatus, error);
+                             })
+         },
+         error: function(xhr, textStatus, error) { 
+                            // console.error("Error Updating!", xhr, textStatus, error);
+                     }
+     })
+ }
+
+
+ https://answers.splunk.com/answers/315160/how-to-update-splunk-after-javascript-changes-with.html
+
+ [settings]
+ js_no_cache = true
+ cacheBytesLimit = 0
+ cacheEntriesLimit = 0
+ max_view_cache_size = 0
+ auto_refresh_views = 1
+
+
+https://docs.splunk.com/Documentation/Splunk/7.3.1/AdvancedDev/CustomizationOptions
+ set cacheEntriesLimit=0 in web.conf. This setting is recommended only for development use cases and not for production. For more information, see the web.conf spec file in the Admin Manual.
+
+https://answers.splunk.com/answers/615685/debug-refresh-or-bump-using-rest-api.html
+
+https://answers.splunk.com/answers/31289/can-i-issue-a-bump-from-the-command-line.html
+
+workaround:
+andreas@art-mb-2.local:~/splunk/var/run/splunk$ vi push-version.txt
+andreas@art-mb-2.local:~/splunk/var/run/splunk$ ~/splunk/bin/splunk restart splunkweb
+Splunk's web interface has been restarted.
+
+
+test: muss auf jedem SHC Member ausgeführt werden
+
+~/splunk/var/run/splunk/appserver

@@ -1,0 +1,9 @@
+[]
+access = read : [ * ], write : [ admin ]
+
+[alert_actions/saveresult]
+export = system
+
+
+[commands/dobump]
+export = system
