@@ -16,12 +16,31 @@ You'll find a "testcss" app in the subfolder of the app.
 - Now update the file
 appserver/static/show_rule_details.js file in the app in line 17:
 
-        ``document.getElementById("outputName").innerHTML = "version5";``
+``document.getElementById("outputName").innerHTML = "version5";``
 
 and output a new string.. 
 - do a reload of the dashboard and notice, that appserver cache will still deliver javascript "version5".
 
-- run " | dodump", reload the dashboard and notice the new string.. 
+- run " | dobump", reload the dashboard and notice the new string.. 
+
+**Integraton to your CI/CD pipeline**
+
+You need to run "| dobump" within you CI pipeline after our apps have been deployed. For triggering from a script you can use the search.py from the [Splunk SDK](https://github.com/splunk/splunk-sdk-python/blob/master/examples/search.py) /examples repository. 
+You can trigger the dobump using command
+``python search.py --host localhost --username admin --password THISISMYPASSWORD "| dobump "``
+
+Let's assume you are deploying your apps to a searchhead cluster: 
+- first run your deployment from deployer like: 
+``/opt/splunk/bin/splunk apply shcluster-bundle -target https://$SPLUNK_SEARCH_HEAD_CAPTAIN_URL:8089 -auth admin:$SPLUNK_PASSWORD --answer-yes``
+- run the "| dobump" on every shc cluster node
+``
+# running bump von shc1
+python search.py --host shc1 --username admin --password THISISMYPASSWORD "| dobump"
+# running bump von shc2
+python search.py --host shc2 --username admin --password THISISMYPASSWORD "| dobump"
+# running bump von shc3
+python search.py --host shc3 --username admin --password THISISMYPASSWORD "| dobump"
+``
 
 **Support**
 
