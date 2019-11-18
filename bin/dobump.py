@@ -11,11 +11,15 @@ class DoBumpCommand(GeneratingCommand):
 
     def generate(self):
         fname = os.path.join(os.environ["SPLUNK_HOME"],  "var", "run", "splunk", "push-version.txt")
-        with open(fname, 'r') as f:
-            content = f.read()
+        try:
+            with open(fname, 'r') as f:
+                content = f.read()
 
-        myversion = int(content)
-        newversion = myversion+1
+            myversion = int(content)
+            newversion = myversion+1
+        except:
+            newversion = 1
+
         with open(fname,"w") as f:
             f.write(str(newversion))
 
