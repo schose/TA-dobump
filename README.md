@@ -33,14 +33,15 @@ Let's assume you are deploying your apps to a searchhead cluster:
 - first run your deployment from deployer like: 
 ``/opt/splunk/bin/splunk apply shcluster-bundle -target https://$SPLUNK_SEARCH_HEAD_CAPTAIN_URL:8089 -auth admin:$SPLUNK_PASSWORD --answer-yes``
 - run the "| dobump" on every shc cluster node
-``
-# running bump von shc1
+
+```
+# running bump on shc1
 python search.py --host shc1 --username admin --password THISISMYPASSWORD "| dobump"
-# running bump von shc2
+# running bump on shc2
 python search.py --host shc2 --username admin --password THISISMYPASSWORD "| dobump"
-# running bump von shc3
+# running bump on shc3
 python search.py --host shc3 --username admin --password THISISMYPASSWORD "| dobump"
-``
+```
 
 **Support**
 
