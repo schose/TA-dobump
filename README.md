@@ -23,7 +23,7 @@ and output a new string..
 
 - run " | dobump", reload the dashboard and notice the new string.. 
 
-**Integraton to your CI/CD pipeline**
+**Integration to your CI/CD pipeline**
 
 You need to run "| dobump" within you CI pipeline after our apps have been deployed. For triggering from a script you can use the search.py from the [Splunk SDK](https://github.com/splunk/splunk-sdk-python/blob/master/examples/search.py) /examples repository. 
 You can trigger the dobump using command
