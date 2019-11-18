@@ -49,6 +49,13 @@ This is an open source project, no support provided, but you can ask questions
 on answers.splunk.com and I will most likely answer it.
 Github repository: https://github.com/schose/TA-dobump
 
+This script have been tested against python2.7 and python3.7.
+
+Supported versions: 
+- Splunk Enterprise v7.3
+- Splunk Enterprise v8.0
+
+
 **Links**
 
 - https://answers.splunk.com/answers/31289/can-i-issue-a-bump-from-the-command-line.html
